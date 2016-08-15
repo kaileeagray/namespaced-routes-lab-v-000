@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   resources :songs
 
   namespace :admin do
-   resources :preferences, only: [:index]
-   resources :songs, only: [:new, :delete, :create]
-   resources :artists, only: [:new, :delete, :create]
+    resources :preferences, only: [:index, :update]
   end
 
 end
