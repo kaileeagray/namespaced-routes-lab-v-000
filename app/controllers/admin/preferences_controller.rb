@@ -3,10 +3,14 @@ class Admin::PreferencesController < ApplicationController
     @preference = Preference.first_or_create(allow_create_artists: true, allow_create_songs: true, song_sort_order: "DESC", artist_sort_order: "DESC")
   end
 
+  def show
+    @preference = Preference.first_or_create(allow_create_artists: true, allow_create_songs: true, song_sort_order: "DESC", artist_sort_order: "DESC")
+  end
+
   def update
     @preference = Preference.find(params[:id])
     @preference.update(preference_params)
-    redirect_to :index
+    redirect_to admin_preference_path
   end
 
   private
